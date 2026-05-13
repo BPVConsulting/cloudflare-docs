@@ -58,7 +58,9 @@ The `/cdn-cgi/rum` endpoint only accepts `POST` requests for data ingestion. If 
 
 The Web Analytics beacon (`beacon.min.js`) always uses `POST` when reporting metrics. If you see `405` errors in your logs, the requests are not coming from the beacon itself.
 
-No action is required unless you are making custom requests to this endpoint. If you are, ensure your implementation uses the `POST` method. `OPTIONS` requests (CORS preflight) are also supported and will continue to work normally.
+They are most likely coming from an automated testing tool making erroneous requests, in which case you should correct it to use `POST` or ignore the errors.
+
+We do not support custom integrations directly with the endpoint: all requests should originate from our beacon JavaScript.
 
 ---
 
